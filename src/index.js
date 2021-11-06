@@ -16,6 +16,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRE_DETAILS', fetchGenreDetails);
     yield takeEvery('FETCH_ALL_GENRE_FORM', fetchAllGenre);
+    yield takeEvery('ADD_NEW_MOVIE', addNewMovie);
 }
 
 
@@ -25,7 +26,7 @@ function* fetchAllGenre() {
     // get genre from the DB as response
     try {
         const response = yield axios.get(`/api/genre`);
-        console.log('This is genre GET', response.data);
+        console.log('This is all genre GET', response.data);
         yield put({
             type: 'SET_GENRES',
             payload: response.data
@@ -55,7 +56,6 @@ function* fetchGenreDetails(action) {
 }
 
 
-
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
@@ -66,14 +66,23 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }
-
 }
+
+//POST new movie to DB
+function* addNewMovie(action) {
+    try {
+        axios.post('/api/movie', action.payload)
+        yield put({ type: 'FETCH_MOVIES' });
+    } catch (error) {
+        console.log('get all error');
+    }
+} //end addNewMovie
 
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-//*** REDUCERS****
+/**** REDUCERS ****/
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
