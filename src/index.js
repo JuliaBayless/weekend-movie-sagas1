@@ -68,10 +68,11 @@ function* fetchAllMovies() {
     }
 }
 
-//POST new movie to DB
+//POST new movie to DB --> then fetch
 function* addNewMovie(action) {
     try {
         axios.post('/api/movie', action.payload)
+        //FETCH the new DB
         yield put({ type: 'FETCH_MOVIES' });
     } catch (error) {
         console.log('get all error');
