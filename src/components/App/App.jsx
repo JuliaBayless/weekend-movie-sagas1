@@ -10,12 +10,14 @@ function App() {
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>
+      <Link className="linkAddMovie" to="/AddMovie">Add Movie</Link>
         <Route path="/" exact>
           <MovieList />
-          
+
         </Route>
         {/* Details page */}
         <Route path="/MovieDetails">
+
           <MovieDetails />
 
         </Route>
@@ -24,8 +26,6 @@ function App() {
         <AddMovie />
         </Route>
 
-
-       
       </Router>
     </div>
   );

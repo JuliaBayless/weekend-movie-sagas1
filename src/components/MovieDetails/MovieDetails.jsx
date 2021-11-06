@@ -1,4 +1,4 @@
-
+import { HashRouter as Link } from 'react-router-dom';
 
 // function to show movie details page
 function MovieDetails() {
@@ -7,9 +7,12 @@ function MovieDetails() {
 
 
     return (
-        <h2>Movie Details</h2>
+        <>
+            <h2>Movie Details</h2>
+            <Link className="link" to="/">Home</Link>
 
 
+        </>
     )
 } //end MovieDetails
 

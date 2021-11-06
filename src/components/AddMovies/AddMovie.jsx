@@ -2,13 +2,14 @@
 
 
 //function form to add a movie
-function AddMovie () {
+function AddMovie() {
 
 
-    return(
-        <h2>Add Movie</h2>
-
-
+    return (
+        <>
+            <h2>Add Movie</h2>
+            <Link className="link" to="/">Home</Link>
+        </>
     )
 }
 
