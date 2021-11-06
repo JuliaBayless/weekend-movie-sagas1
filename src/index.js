@@ -15,7 +15,26 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRE_DETAILS', fetchGenreDetails);
+    yield takeEvery('FETCH_ALL_GENRE_FORM', fetchAllGenre);
 }
+
+
+
+//GET for all genres on FORM
+function* fetchAllGenre() {
+    // get genre from the DB as response
+    try {
+        const response = yield axios.get(`/api/genre`);
+        console.log('This is genre GET', response.data);
+        yield put({
+            type: 'SET_GENRES',
+            payload: response.data
+        });
+    } catch {
+        console.log('get all error');
+    }
+}
+
 
 
 //GET to genre.router for genre details on selected movies
@@ -35,6 +54,8 @@ function* fetchGenreDetails(action) {
 
 }
 
+
+
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
@@ -48,8 +69,11 @@ function* fetchAllMovies() {
 
 }
 
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
+//*** REDUCERS****
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
@@ -59,10 +83,20 @@ const movies = (state = [], action) => {
         default:
             return state;
     }
-}
+}//end movies
+
+// Used to store all genres returned from the server
+const genres = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_GENRES':
+            return action.payload;
+        default:
+            return state;
+    }
+}//end genres
 
 
-//Stores movie for details page
+//Stores 1 selected movie for details page
 const movieDetails = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIE_DETAIL':
@@ -72,7 +106,8 @@ const movieDetails = (state = [], action) => {
     }
 } //end movieDetails
 
-//stores genre details from DB for /MovieDetails
+
+//stores genre details from DB for selected movie -> /MovieDetails
 const genreDetails = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRE_DETAILS':
@@ -82,10 +117,12 @@ const genreDetails = (state = [], action) => {
     }
 } //end genreDetails
 
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
+        genres,
         movieDetails,
         genreDetails,
     }),

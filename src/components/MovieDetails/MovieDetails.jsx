@@ -25,6 +25,12 @@ console.log('This is Genre', genres);
         <>
             <h2>Movie Details</h2>
             <button onClick={() => history.push('/')}>Home</button>
+            
+            {!movie && <p> No movie is selected, 
+            please go back to <Link to="/">home</Link> page.
+            </p>
+            }
+
             <div>
                 <h3>{movie.title}</h3>
                 <h5>Genre{ genres.length > 1 && 's'}</h5>
@@ -33,7 +39,8 @@ console.log('This is Genre', genres);
                 <img src={movie.poster} alt={movie.title} />
                 </div>
                 <p>{movie.description}</p>
-            </div>
+            </div> 
+            <p>No movie is selected, please go back to the <Link to="/">Home</Link> page.</p>
         </>
     )
 } //end MovieDetails
