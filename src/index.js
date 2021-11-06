@@ -23,10 +23,10 @@ function* fetchGenreDetails(action) {
     // get genre from the DB as response
     try {
         const response = yield axios.get(`/api/genre/${action.payload}`);
-        console.log('This is genre GER', response);
+        console.log('This is genre GET', response.data.data);
         yield put({
             type: 'SET_GENRE_DETAILS',
-            payload: response
+            payload: response.data
         });
 
     } catch {

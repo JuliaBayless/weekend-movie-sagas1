@@ -18,7 +18,7 @@ function MovieDetails() {
             type: 'FETCH_GENRE_DETAILS',
             payload: movie.id
         })
-    })
+    }, [])
 
 console.log('This is Genre', genres);
     return (
@@ -27,17 +27,12 @@ console.log('This is Genre', genres);
             <button onClick={() => history.push('/')}>Home</button>
             <div>
                 <h3>{movie.title}</h3>
+                <h5>Genre{ genres.length > 1 && 's'}</h5>
+                {genres?.map(genre => genre.name).join(', ')}
+                <div className="movieImage">
                 <img src={movie.poster} alt={movie.title} />
+                </div>
                 <p>{movie.description}</p>
-                <h4>Genre</h4>
-                {genres?.map(genre => {
-                    return (
-                        <div key={genre.id}>
-                            <p>{genre.join(', ')}</p>
-                        </div>
-                    );
-                })}
-
             </div>
         </>
     )
