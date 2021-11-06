@@ -19,6 +19,7 @@ function MovieList() {
             type: 'SET_MOVIE_DETAIL',
             payload: movie
         })
+        
         history.push('/MovieDetails')
     }
 
@@ -30,7 +31,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <div onClick={handleSubmitDetails(movie)} key={movie.id} >
+                        <div onClick={() => {handleSubmitDetails(movie)}} key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title} />
                         </div>
