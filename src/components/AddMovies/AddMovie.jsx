@@ -1,14 +1,14 @@
-
+import { useHistory } from "react-router";
 
 
 //function form to add a movie
 function AddMovie() {
-
+ const history = useHistory();
 
     return (
         <>
             <h2>Add Movie</h2>
-            <Link className="link" to="/">Home</Link>
+            <button onClick={()=>history.push('/MovieDetails')}>Home</button>
         </>
     )
 }

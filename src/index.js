@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App.js';
+import App from './components/App/App.jsx';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
@@ -52,11 +52,22 @@ const genres = (state = [], action) => {
     }
 }
 
+//Stores movie for details page
+const movieDetails = (state=[], action) => {
+    switch (action.type) {
+        case 'SET_MOVIE_DETAIL':
+            return action.payload;
+        default:
+            return state;
+    }
+} //end movieDetails
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDetails,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
