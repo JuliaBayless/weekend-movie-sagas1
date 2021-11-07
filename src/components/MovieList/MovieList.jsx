@@ -25,7 +25,7 @@ function MovieList() {
 
     return (
             <Container>
-                <h1>MovieList</h1>
+                <h1 className="movieListHeader">Movie List</h1>
                 <Grid container justifyContent="center"
                     sx={{ flexGrow: 1 }} container spacing={4}>
                     {movies.map(movie => {

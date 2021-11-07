@@ -1,14 +1,15 @@
-.movies {
-    display : flex;
-    flex-wrap: wrap;
-}
-
-.movieListHeader {
+.movieDetailsHeader {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 50px;
+    font-size: 40px;
     color: #e57373;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     text-shadow: 1px 1px grey;
-    padding: 40px;
+    padding: 20px;
 }
+
+p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+

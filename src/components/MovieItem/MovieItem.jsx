@@ -9,10 +9,10 @@ import { CardActionArea } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { pink } from '@mui/material/colors';
 
+
 export default function MovieItem({ movie }) {
     const dispatch = useDispatch();
     const history = useHistory();
-
 
 
     const handleSubmitDetails = (movie) => {
@@ -32,9 +32,9 @@ export default function MovieItem({ movie }) {
                 onClick={() => { handleSubmitDetails(movie) }}
                 sx={{ height: 575, width: 350 }}>
                 <CardActionArea>
-                <Box display='flex' flexGrow={1}>
-                <OpenInNewIcon sx={{ color: pink[100] }} />
-                </Box>
+                    <Box display='flex' flexGrow={1}>
+                        <OpenInNewIcon sx={{ color: pink[100] }} />
+                    </Box>
                     <CardHeader
                         title={movie.title} />
                     <CardMedia
