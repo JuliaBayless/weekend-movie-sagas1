@@ -1,12 +1,18 @@
 import Paper from '@mui/material/Paper';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router";
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import { Container } from '@material-ui/core';
+import { CardActionArea } from '@mui/material';
 
 export default function MovieItem({ movie }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    
+
+
     const handleSubmitDetails = (movie) => {
         dispatch({
             type: 'SET_MOVIE_DETAIL',
@@ -18,12 +24,21 @@ export default function MovieItem({ movie }) {
 
 
     return (
-        <Paper
-            onClick={() => { handleSubmitDetails(movie) }}
-            sx={{ height: 500, width: 400 }}>
-            <h3>{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title} />
-        </Paper>
+        <Container>
+            <Card sx={{ maxWidth: 345 }}
+                elevation={6}
+                onClick={() => { handleSubmitDetails(movie) }}
+                sx={{ height: 575, width: 350 }}>
+                <CardActionArea>
+                    <CardHeader
+                        title={movie.title} />
+                    <CardMedia
+                        component="img"
+                        image={movie.poster}
+                        alt={movie.title} />
+                </CardActionArea>
+            </Card>
+        </Container>
     )
 
 } //end MovieItem
