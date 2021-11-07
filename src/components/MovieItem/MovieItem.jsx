@@ -4,8 +4,10 @@ import { useHistory } from "react-router";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import { Container } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 import { CardActionArea } from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { pink } from '@mui/material/colors';
 
 export default function MovieItem({ movie }) {
     const dispatch = useDispatch();
@@ -30,6 +32,9 @@ export default function MovieItem({ movie }) {
                 onClick={() => { handleSubmitDetails(movie) }}
                 sx={{ height: 575, width: 350 }}>
                 <CardActionArea>
+                <Box display='flex' flexGrow={1}>
+                <OpenInNewIcon sx={{ color: pink[100] }} />
+                </Box>
                     <CardHeader
                         title={movie.title} />
                     <CardMedia
