@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Header from '../Header/Header';
 import './MovieList.css'
 import { useHistory } from "react-router";
 import { Button, Container } from '@material-ui/core';
@@ -28,9 +29,12 @@ function MovieList() {
 
     return (
         <main>
-            <Button onClick={() => history.push('/AddMovie')}>Add Movie</Button>
-            <h1>MovieList</h1>
+            <Header />
+
+
             <Container>
+                <Button onClick={() => history.push('/AddMovie')}>Add Movie</Button>
+                <h1>MovieList</h1>
                 <Grid container justifyContent="center"
                     sx={{ flexGrow: 1 }} container spacing={4}>
 
