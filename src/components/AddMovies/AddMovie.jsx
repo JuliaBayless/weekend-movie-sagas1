@@ -46,8 +46,8 @@ function AddMovie() {
     console.log(genres);
     return (
         <>
+            <button onClick={() => history.push('/')}>home</button>
             <h2>Add Movie</h2>
-            <button onClick={() => history.push('/MovieDetails')}>home</button>
             <form onSubmit={handleSubmitMovie}>
                 <input
                     type="text"

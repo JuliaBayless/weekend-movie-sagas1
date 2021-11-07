@@ -2,6 +2,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from "react-router";
 import { useEffect } from 'react';
+import { Button } from '@material-ui/core';
 
 
 // function to show movie details page
@@ -20,26 +21,27 @@ function MovieDetails() {
         })
     }, [])
 
-console.log('This is Genre', genres);
+    console.log('This is Genre', genres);
     return (
         <>
+            <Button onClick={() => history.push('/')}>Home</Button>
             <h2>Movie Details</h2>
-            <button onClick={() => history.push('/')}>Home</button>
-            
-            {!movie && <p> No movie is selected, 
-            please go back to <Link to="/">home</Link> page.
-            </p>
-            }
+            {/*conditional render to send user back to home page if 
+            no movie has been chosen */}
+            {!movie && <p> No movie is selected,
+                please go back to <Link to="/">home</Link> page.
+            </p>}
 
             <div>
                 <h3>{movie.title}</h3>
-                <h5>Genre{ genres.length > 1 && 's'}</h5>
+                {/* Genre vs Genres render wars! */}
+                <h5>Genre{genres.length > 1 && 's'}</h5>
                 {genres?.map(genre => genre.name).join(', ')}
                 <div className="movieImage">
-                <img src={movie.poster} alt={movie.title} />
+                    <img src={movie.poster} alt={movie.title} />
                 </div>
                 <p>{movie.description}</p>
-            </div> 
+            </div>
             <p>No movie is selected, please go back to the <Link to="/">Home</Link> page.</p>
         </>
     )
