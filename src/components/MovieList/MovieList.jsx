@@ -16,6 +16,7 @@ function MovieList() {
     const history = useHistory();
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
+    const [spacing, setSpacing] = React.useState(2);
 
 
     useEffect(() => {
@@ -36,23 +37,29 @@ function MovieList() {
         <main>
             <Button onClick={() => history.push('/AddMovie')}>Add Movie</Button>
             <h1>MovieList</h1>
-            {/* <Grid container>
-                <Grid item>
-                    {movies.map(movie => {
-                        return(
-                        <Paper onClick={() => { handleSubmitDetails(movie) }} key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} />
-                        </Paper>
-                    )})}
+            <Grid container justifyContent="center"
+                sx={{ flexGrow: 1 }} container spacing={2}>
+
+                {movies.map(movie => {
+                    return (
+                        <Grid item md={3}>
+                            <Paper
+                                onClick={() => { handleSubmitDetails(movie) }} key={movie.id}
+                                sx={{ height: 500, width: 400 }}>
+                                <h3>{movie.title}</h3>
+                                <img src={movie.poster} alt={movie.title} />
+                            </Paper>
+                        </Grid>
+                    )
+                })}
 
 
 
-                </Grid>
 
 
-            </Grid> */}
-            <section className="movies">
+
+            </Grid>
+            {/* <section className="movies">
                 {movies.map(movie => {
                     return (
                         <div onClick={() => { handleSubmitDetails(movie) }} key={movie.id} >
@@ -61,7 +68,7 @@ function MovieList() {
                         </div>
                     );
                 })}
-            </section>
+            </section> */}
         </main>
 
     );
