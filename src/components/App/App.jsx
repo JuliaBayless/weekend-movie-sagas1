@@ -14,11 +14,12 @@ function App() {
 
   
   return (
-    
+   
     <div className="App">
-      {/* <Header /> */}
+       <Router>
+      <Header />
       {/* <h1>The Movies Saga!</h1> */}
-      <Router>
+     
         <Route path="/" exact>
           <MovieList />
         </Route>

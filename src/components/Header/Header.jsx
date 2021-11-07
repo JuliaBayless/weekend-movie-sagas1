@@ -2,34 +2,67 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    makeStyles
+    makeStyles,
+    Button,
 } from "@material-ui/core";
+import { positions } from "@mui/system";
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+
+// data containing routes for header links
+const headersData = [
+    {
+        label: "Home",
+        href: "/",
+    },
+    {
+        label: "Add Movie",
+        href: "/AddMovie",
+    },
+]
+
+//header background color
+const useStyles = makeStyles(() => ({
+    header: {
+        backgroundColor: "#b53d00",
+        paddingRight: "79px",
+        paddingLeft: "118px",
+        paddingBottom: "5px",
+        paddingTop: "5px",
+        position: "sticky"
+    },
+    logo: {
+        fontFamily: "Work Sans, sans-serif",
+        fontWeight: 600,
+        textAlign: "left",
+        color: "#FFFEFE"
+    },
+    menuButton: {
+        fontFamily: "Open Sans, sans-serif",
+        fontWeight: 700,
+        size: "18px",
+        marginLeft: "38px",
+        marginRight: "10px"
+     },
+     toolbar: {
+        display: "flex",
+        justifyContent: "space-between",
+        marginRight: "50px"
+      },
+}));
+
 
 export default function Header() {
-
-    //header background color
-    const useStyles = makeStyles(() => ({
-        header: {
-            backgroundColor: "#b53d00",
-        },
-        logo: {
-            fontFamily: "Work Sans, sans-serif",
-            fontWeight: 600,
-            textAlign: "left",
-            color: "#FFFEFE"
-        }
-    })); 
-
     //useStyles hook
-    const { header, logo } = useStyles();
+    const { header, logo, menuButton, toolbar } = useStyles();
 
 
     //function displaying header as toolbar
     const displayDesktop = () => {
         return (
-            <Toolbar>
+            <Toolbar className={toolbar}>
                 {movieSagaLogo}
+                <div>{getMenuButtons()}</div>
             </Toolbar>
         )
     } //end displayDesktop
@@ -43,6 +76,23 @@ export default function Header() {
         </Typography>
     ) //end const movieSagaLogo
 
+    const getMenuButtons = () => {
+        return headersData.map(({ label, href }) => {
+            return (
+                <Button
+                    {...{
+                        key: label,
+                        color: "inherit",
+                        to: href,
+                        component: RouterLink,
+                        className: menuButton
+                    }}
+                >
+                    {label}
+                </Button>
+            );
+        });
+    };
 
     return (
         <header>
