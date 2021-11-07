@@ -27,23 +27,23 @@ This project collects movie information via the Add Movie Form, and displays the
 
 ## Getting Started
 
-Fork and clone repo
-
-Open up folder to database.sql
-
-Open up Postgres and create a database named "saga_movies_weekend".
+[ ]Fork and clone repo
 
 ### Prerequisites
 
-What do I need to install before I can run your project
+[ ]Open terminal and type 'npm install'
+
+[ ]Open up Postico and create a database named "saga_movies_weekend".
 
 ### Installation
 
-Copy and paste whats in the file into Postgres and install each table with its values. That will get you started with the databases
+[ ]Open up folder to database.sql
 
-Open terminal and type 'npm install' 
+[ ]Copy and paste whats in the file into Postico and install each table with its values. That will get you started with the databases
 
-After thats downloaded, type 'npm run server' and 'npm run client' in a second terminal.
+[ ]After thats downloaded, 
+    type 'npm run server' and 
+    'npm run client' in a second terminal.
 
 ## Usage
 
