@@ -9,6 +9,8 @@ import { positions } from '@mui/system';
 import MovieItem from '../MovieItem/MovieItem';
 
 
+
+
 function MovieList() {
     const history = useHistory();
     const dispatch = useDispatch();

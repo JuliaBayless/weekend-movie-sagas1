@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
         paddingLeft: "118px",
         paddingBottom: "5px",
         paddingTop: "5px",
-        position: "sticky"
+        position: "fixed",
     },
     logo: {
         fontFamily: "Work Sans, sans-serif",
@@ -97,6 +97,9 @@ export default function Header() {
     return (
         <header>
             <AppBar className={header}>{displayDesktop()}</AppBar>
+            {/* Extra empty tool bar to help content show
+            underneath tool App bar */}
+            <Toolbar />
         </header>
     )
 
