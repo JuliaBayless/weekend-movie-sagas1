@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { useHistory } from "react-router";
-import { Button } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import Grid from '@mui/material/Grid';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
@@ -10,6 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import Paper from '@mui/material/Paper';
+import MovieItem from '../MovieItem/MovieItem';
 
 
 function MovieList() {
@@ -23,52 +24,25 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const handleSubmitDetails = (movie) => {
-        dispatch({
-            type: 'SET_MOVIE_DETAIL',
-            payload: movie
-        })
-
-        history.push('/MovieDetails')
-    }
 
 
     return (
         <main>
             <Button onClick={() => history.push('/AddMovie')}>Add Movie</Button>
             <h1>MovieList</h1>
-            <Grid container justifyContent="center"
-                sx={{ flexGrow: 1 }} container spacing={2}>
+            <Container>
+                <Grid container justifyContent="center"
+                    sx={{ flexGrow: 1 }} container spacing={4}>
 
-                {movies.map(movie => {
-                    return (
-                        <Grid item md={3}>
-                            <Paper
-                                onClick={() => { handleSubmitDetails(movie) }} key={movie.id}
-                                sx={{ height: 500, width: 400 }}>
-                                <h3>{movie.title}</h3>
-                                <img src={movie.poster} alt={movie.title} />
-                            </Paper>
-                        </Grid>
-                    )
-                })}
-
-
-
-
-
-
-            </Grid>
-            {/* <section className="movies">
-                {movies.map(movie => {
-                    return (
-                        <div onClick={() => { handleSubmitDetails(movie) }} key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} />
-                        </div>
-                    );
-                })}
-            </section> */}
+                    {movies.map(movie => {
+                        return (
+                            <Grid item key={movie.id} xs={12} sm={6} md={5} lg={4}>
+                                <MovieItem movie={movie} />
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+            </Container>
         </main>
 
     );
