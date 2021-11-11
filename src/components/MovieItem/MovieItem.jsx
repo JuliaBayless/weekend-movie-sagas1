@@ -30,17 +30,22 @@ export default function MovieItem({ movie }) {
             <Card sx={{ maxWidth: 345 }}
                 elevation={6}
                 onClick={() => { handleSubmitDetails(movie) }}
-                sx={{ height: 575, width: 350 }}>
+                sx={{ height: 650, width: 350 }}>
                 <CardActionArea>
-                    <Box display='flex' flexGrow={1}>
+                    {/* <Box display='flex' flexGrow={1}>
                         <OpenInNewIcon sx={{ color: pink[100] }} />
                     </Box>
                     <CardHeader
-                        title={movie.title} />
+                        title={movie.title} /> */}
                     <CardMedia
                         component="img"
                         image={movie.poster}
                         alt={movie.title} />
+                        <Box display='flex' flexGrow={1}>
+                        <OpenInNewIcon sx={{ color: pink[100] }} />
+                    </Box>
+                    <CardHeader
+                        title={movie.title} />
                 </CardActionArea>
             </Card>
         </Container>
