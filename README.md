@@ -18,10 +18,11 @@
 
 This project collects movie information via the Add Movie Form, and displays them on the DOM at the home page. If you click on a movie at the home page, it will take you to a details page of that movie and it's genres. Two database tables were used for this project to join genres and movie data. In this particular project, redux-saga was utilized. Much time was spent on Material-UI and having fun with its design components. To get this baby fired up, make sure you've got your Postgres ready to get started!
 
-## Built With
+## Screen Shots
 
 <img src="" />## Built With
 
+## Built With
 
 <a href="https://www.apple.com"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a><a href="https://material-ui.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" height="40px" width="40px" /></a><a href="https://nodejs.org/en/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40px" width="40px" /></a><a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a><a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a><a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a>
 
@@ -56,9 +57,6 @@ To add a movie, simply click Add Movie at the nav bar. Input all information and
 
 <a href="https://choosealicense.com/licenses/mit/"><img src="https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/mit.svg" height=40 />MIT License</a>
 
-## Acknowledgements
-
-Who helped you make this project a reality? Friends? Family? Contributors? Instructors?
 
 ## Contacts
 

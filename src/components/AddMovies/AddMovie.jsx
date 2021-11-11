@@ -18,7 +18,12 @@ const useStyles = makeStyles(() => ({
     },
     button: {
         color: '#FFFFFF',
-        background: '#af4448'
+        background: '#af4448',
+        margin: "20px",
+       
+    },
+    button2: {
+        margin: "20px",
     },
     paper: {
         margin: "60px",
@@ -45,7 +50,7 @@ function AddMovie() {
     }
 
     //grab styles
-    const { input, button, paper } = useStyles();
+    const { input, button, paper, button2 } = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
     //where new movie information will live
@@ -59,7 +64,6 @@ function AddMovie() {
     const handleSubmitMovie = (event) => {
         event.preventDefault();
         //test the data
-        console.log(newMovie);
         // dispatch the new movie to a POST in index
         dispatch({
             type: 'ADD_NEW_MOVIE',
@@ -72,15 +76,6 @@ function AddMovie() {
     console.log(genres);
     return (
         <>
-
-            {/* <Box
-                component="form"
-                sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
-                }}
-                noValidate
-                autoComplete="off"
-            > */}
             <h2 className="movieAddHeader">Add Movie</h2>
             <Paper elevation={3} sx={{ flexGrow: 1 }} className={paper}>
                 <Grid container spacing={2}>
@@ -150,6 +145,10 @@ function AddMovie() {
                                     variant="outlined"
                                     className={button}
                                     type="submit">Add Movie</Button>
+                                <Button
+                                    className={button2}
+                                    variant="outlined"
+                                    onClick={()=>{history.push('/')}}>Cancel</Button>
                             </Grid>
                         </form>
                         {/* </Box> */}
